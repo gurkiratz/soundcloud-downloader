@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SoundCloud Downloader</title>
+  </head>
+  <body>
+    <h1>SoundCloud Audio Downloader</h1>
+    <form action="{% url 'downloader:download_audio' %}" method="post">
+      {% csrf_token %}
+      <label for="url">SoundCloud URL:</label>
+      <input type="url" name="url" id="url" required />
+      <br />
+      <label for="folder">Download Folder (optional):</label>
+      <input
+        type="text"
+        name="folder"
+        id="folder"
+        placeholder="e.g., my_music"
+      />
+      <br />
+      <button type="submit">Download</button>
+    </form>
+  </body>
+</html>
